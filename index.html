@@ -852,16 +852,20 @@ function render() {
     html += '<div class="feedback' + fcls + '">'
       + escapeHtml(feedback)
       + '</div>';
-    html += '<div class="explain">';
-    if(picked){
-    if(q.explain){
-        html += '<p>' + escapeHtml(q.explain) + '</p>'; }
-    if(q.explainImg){
-        html += '<img src="' + escapeHtml(q.explainImg) + '">'; } }
-    html += '</div>';
-    html += '</article>';
 
+    if (picked && (q.explain || q.explainImg)) {
+    html += '<div class="explain" style="display:block">';
+    if (q.explain) {
+        html += '<p>' + escapeHtml(q.explain) + '</p>';
+    }
+
+    if (q.explainImg) {
+        html += '<img src="' + escapeHtml(q.explainImg) + '">';
+    }
+    html += '</div>';
   }
+
+    html += '</article>';
   if (count === 0) html = '<div class="empty">Không tìm thấy câu hỏi phù hợp.</div>';
   byId('app').innerHTML = html;
   updateStats();
