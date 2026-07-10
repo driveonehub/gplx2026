@@ -395,8 +395,8 @@ var DATA = [
 
 
 {"id": "phan-5", "title": "Biển báo", "count": 185, "questions": [
-{"num":301,"id":301,"q":"Biển nào cấm các loại xe cơ giới đi vào, trừ xe máy hai bánh, xe gắn máy và các loại xe ưu tiên theo quy định?","img":"q301.jpg","opts":{"A":" Biển 1.","B":"Biển 2.","C":"Biển 1 và biển 3.","D":"Cả ba biển."},"answer":"A"},
-{"num":302,"id":302,"q":"Biển nào cấm xe ô tô tải?","img":"q302.jpg","opts":{"A":"Cả ba biển.","B":"Biển 2 và biển 3.","C":"Biển 1 và biển 3.","D":"Biển 1 và biển 2."},"answer":"D"},
+{"num":301,"id":301,"q":"Biển nào cấm các loại xe cơ giới đi vào, trừ xe máy hai bánh, xe gắn máy và các loại xe ưu tiên theo quy định?","img":"q301.jpg","opts":{"A":" Biển 1.","B":"Biển 2.","C":"Biển 1 và biển 3.","D":"Cả ba biển."},"answer":"A","explain":"Nhiều bạn nhầm lẫn biển 1 chỉ cấm xe ô tô, tuy nhiên ý nghĩa biển này là cấm TẤT CẢ các loại xe cơi giới, trừ xe gắn máy, mô tô 2 bánh, và các xe ưu tiên theo luật định.\nXem phần tra cứu thông tin biển báo bên dưới để xem chi tiết.","explainImg":"a301.jpg"},
+{"num":302,"id":302,"q":"Biển nào cấm xe ô tô tải?","img":"q302.jpg","opts":{"A":"Cả ba biển.","B":"Biển 2 và biển 3.","C":"Biển 1 và biển 3.","D":"Biển 1 và biển 2."},"answer":"D","explain":"Biển 1 (P.103a): Cấm các loại xe cơ giới, trong đó có ô tô tải.\nBiển 2 (P.107): Cấm ô tô khách và ô tô tải.\nBiển 3 (P.108): Cấm xe kéo rơ moóc.\n-> Vậy biển 1 và biển 2 cấm ô tô tải.\nTra cứu thông tin biển báo:","explainImg":"a302.jpg"},
 {"num":303,"id":303,"q":"Biển nào cấm máy kéo?","img":"q303.jpg","opts":{"A":"Biển 1.","B":" Biển 2 và biển 3.","C":"Biển 1 và biển 3.","D":"Cả ba biển."},"answer":"B"},
 {"num":304,"id":304,"q":"Biển nào báo hiệu cấm xe mô tô ba bánh chở hàng đi qua?","img":"q304.jpg","opts":{"A":" Biển 1 và biển 2.","B":"Biển 1 và biển 3.","C":"Biển 2 và biển 3."},"answer":"A"},
 {"num":305,"id":305,"q":"Biển nào dưới đây xe gắn máy được phép đi vào?","img":"q305.jpg","opts":{"A":"Biển 1.","B":"Biển 2.","C":" Cả hai biển."},"answer":"C"},
@@ -857,7 +857,7 @@ function render() {
     html += '<div class="explain" style="display:block">';
 
     if (q.explain) {
-        html += '<p>' + escapeHtml(q.explain) + '</p>';
+        html += '<p>' + escapeHtml(q.explain).replace(/\n/g, '<br>') + '</p>';
     }
 
     if (q.explainImg) {
