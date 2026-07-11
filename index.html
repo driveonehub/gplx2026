@@ -905,6 +905,7 @@ byId('shuffleQuestions').onclick = function() {
   saveState(); render();
 };
 byId('shuffleAnswers').onclick=function(){
+    return; // Tạm thời tắt chức năng xáo đáp án, xáo đáp án thì bỏ dòng return này
     var section=getSection();
     for(var i=0;i<section.questions.length;i++){
         var q=section.questions[i];
